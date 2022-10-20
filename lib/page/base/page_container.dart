@@ -1,10 +1,6 @@
-/*
- * Copyright 2018 Eric Windmill. All rights reserved.
- * Use of this source code is governed by the MIT license that can be found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
-import 'package:insignia_flutter/shared_lib.dart';
+
+import '../../shared_lib.dart';
 
 class PageContainer extends PageContainerBase {
   final PageType pageType;
@@ -23,7 +19,8 @@ class PageContainer extends PageContainerBase {
         break;
       case PageType.Quiz:
         return "Test Your Knowledge";
-      case PageType.Browse:
+      case PageType.Rank:
+        return "Rank the ranks";
       default:
         return "Browse and Filter";
     }
@@ -34,17 +31,17 @@ class PageContainer extends PageContainerBase {
     var page;
     switch (pageType) {
       case PageType.Study:
-        page = StudyPage(0, "All");
+        page = StudyPage();
         break;
       case PageType.Settings:
         page = UserSettingsPage();
         break;
-      case PageType.Browse:
-        page = BrowsePage();
+      case PageType.Rank:
+        page = RankPage();
         break;
       case PageType.Quiz:
       default:
-        page = QuizPage();
+        page = PracticePage();
     }
     return Padding(
       padding: EdgeInsets.all(Spacing.matGridUnit()),

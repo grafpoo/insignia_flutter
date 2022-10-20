@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:insignia_flutter/main.dart';
 import 'package:insignia_flutter/routes_spec.dart';
 
-
 class AppMenu extends StatefulWidget {
   @override
   AppMenuState createState() => AppMenuState();
@@ -10,7 +9,6 @@ class AppMenu extends StatefulWidget {
 
 class AppMenuState extends State<AppMenu> with RouteAware {
   String _activeRoute;
-
 
   @override
   void didChangeDependencies() {
@@ -24,7 +22,7 @@ class AppMenuState extends State<AppMenu> with RouteAware {
   }
 
   void _navigate(BuildContext context, String route) {
-     // TODO: implement routing
+    // TODO: implement routing
   }
 
   @override
@@ -41,8 +39,7 @@ class AppMenuState extends State<AppMenu> with RouteAware {
             accountEmail: Text("densosity@gmail.com"),
             accountName: Text("john g"),
             onDetailsPressed: () {
-              Navigator.popAndPushNamed(
-                  context, userPage);
+              Navigator.popAndPushNamed(context, userPage);
             },
           ),
           ListTile(
@@ -53,15 +50,21 @@ class AppMenuState extends State<AppMenu> with RouteAware {
           ),
           ListTile(
             leading: Icon(Icons.book),
-            title: Text("Cart"),
+            title: Text("Study"),
             selected: _activeRoute == studyPage,
             onTap: () => _navigate(context, studyPage),
           ),
           ListTile(
             leading: Icon(Icons.forum),
-            title: Text("Cart"),
-            selected: _activeRoute == browsePage,
-            onTap: () => _navigate(context, browsePage),
+            title: Text("Rank"),
+            selected: _activeRoute == rankPage,
+            onTap: () => _navigate(context, rankPage),
+          ),
+          ListTile(
+            leading: Icon(Icons.forum),
+            title: Text("Settings"),
+            selected: _activeRoute == userPage,
+            onTap: () => _navigate(context, userPage),
           ),
           AboutListTile(
             icon: Icon(Icons.info),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:insignia_flutter/cubits/app_cubits.dart';
+import 'package:insignia_flutter/cubits/app_cubits_logic.dart';
 import 'package:logging/logging.dart';
 import 'package:insignia_flutter/branch_picker.dart';
 import 'package:insignia_flutter/page/study_page.dart';
@@ -25,7 +28,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: HomePage(title: _appBarTitle),
+      home: BlocProvider<AppCubits> (
+        create: (context)=>AppCubits(),
+        child: AppCubitLogics(),
+      )
       routes: {
         practicePage: (context) => PracticePage(),
         studyPage: (context) => StudyPage(),
